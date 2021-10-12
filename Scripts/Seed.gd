@@ -7,13 +7,15 @@ const MAX_SPEED = 300
 var dragging = true
 var y_velocity = 0
 
-signal press_drag_signal;
-signal release_drag_signal;
+signal seed_press_drag_signal
+signal seed_release_drag_signal
 
+func get_seed_position():
+	return position
 
 func _ready():
-	connect("press_drag_signal", self, "_press_drag")
-	connect("release_drag_signal", self, "_release_drag")
+	connect("seed_press_drag_signal", self, "_press_drag")
+	connect("seed_release_drag_signal", self, "_release_drag")
 
 
 func _press_drag():
@@ -31,12 +33,13 @@ func _physics_process(delta):
 		move_and_slide(Vector2(0, y_velocity))
 
 func _process(delta):
-	
-	if Input.is_action_just_pressed("click"):
-		emit_signal("press_drag_signal")
-	elif Input.is_action_just_released("click"):
-		emit_signal("release_drag_signal")
-	
 	if dragging:
 		y_velocity = 0
 		position = get_viewport().get_mouse_position() - Vector2(400, 0)
+
+func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("click"):
+			emit_signal("seed_press_drag_signal")
+		elif event.is_action_released("click"):
+			emit_signal("seed_release_drag_signal")
