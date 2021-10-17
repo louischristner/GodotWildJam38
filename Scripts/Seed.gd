@@ -35,7 +35,7 @@ func _physics_process(delta):
 func _process(delta):
 	if dragging:
 		y_velocity = 0
-		position = get_viewport().get_mouse_position() - Vector2(400, 0)
+		position = get_viewport().get_mouse_position() - Vector2(640, 0)
 
 func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/SeedContainer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/garden_pot.png" type="Texture" id=2]
 [ext_resource path="res://Assets/seed_bowl.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Garden.gd" type="Script" id=4]
+[ext_resource path="res://Assets/table.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Garden" type="Sprite" parent="."]
-position = Vector2( 145, 500 )
+position = Vector2( 278.316, 611.634 )
 z_index = 30
 texture = ExtResource( 2 )
 
@@ -22,10 +23,10 @@ polygon = PoolVector2Array( -126.622, -58.7339, 126.172, -59.1307, 95.6141, 58.3
 position = Vector2( 0, -50 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 270.0
-margin_top = 490.0
-margin_right = 398.0
-margin_bottom = 554.0
+margin_left = 403.316
+margin_top = 601.634
+margin_right = 531.316
+margin_bottom = 665.634
 rect_scale = Vector2( 0.8, 1.2 )
 action_mode = 0
 texture_normal = ExtResource( 3 )
@@ -33,6 +34,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="table" type="Sprite" parent="."]
+position = Vector2( 304.723, 802.203 )
+z_index = 100
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="Garden/Area2D" to="Garden/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_TextureButton_pressed"]
