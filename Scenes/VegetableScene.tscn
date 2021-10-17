@@ -1,15 +1,28 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/SeedContainer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/garden_pot.png" type="Texture" id=2]
 [ext_resource path="res://Assets/seed_bowl.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Garden.gd" type="Script" id=4]
 [ext_resource path="res://Assets/table.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/FoodScore.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/FoodInfo.gd" type="Script" id=7]
+[ext_resource path="res://Assets/tub_light.png" type="Texture" id=8]
+[ext_resource path="res://Assets/wheat.png" type="Texture" id=9]
+[ext_resource path="res://Assets/clock.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Light.gd" type="Script" id=11]
+[ext_resource path="res://Assets/light.png" type="Texture" id=12]
+[ext_resource path="res://Assets/background_vegetable.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 103.545, 62.2088 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="background_vegetable" type="Sprite" parent="."]
+position = Vector2( 320, 360 )
+z_index = -100
+texture = ExtResource( 13 )
 
 [node name="Garden" type="Sprite" parent="."]
 position = Vector2( 278.316, 611.634 )
@@ -26,7 +39,12 @@ shape = SubResource( 1 )
 [node name="SpawnLevel" type="Node2D" parent="Garden"]
 position = Vector2( 0, -50 )
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Table" type="Sprite" parent="."]
+position = Vector2( 304.723, 802.203 )
+z_index = 100
+texture = ExtResource( 5 )
+
+[node name="SeedBowl" type="TextureButton" parent="."]
 margin_left = 403.316
 margin_top = 601.634
 margin_right = 531.316
@@ -39,10 +57,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="table" type="Sprite" parent="."]
-position = Vector2( 304.723, 802.203 )
-z_index = 100
-texture = ExtResource( 5 )
+[node name="FoodScore" type="Label" parent="."]
+margin_left = 500.0
+margin_top = 80.0
+margin_right = 540.0
+margin_bottom = 94.0
+rect_scale = Vector2( 2, 2 )
+text = "0"
+align = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeedIcon" type="Sprite" parent="FoodScore"]
+position = Vector2( 50, 5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="FoodInfo" type="Label" parent="."]
+margin_left = 500.0
+margin_top = 120.0
+margin_right = 540.0
+margin_bottom = 134.0
+rect_scale = Vector2( 2, 2 )
+text = "60"
+align = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clock" type="Sprite" parent="FoodInfo"]
+position = Vector2( 50, 5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="TubLight" type="Sprite" parent="."]
+position = Vector2( 320, 20 )
+texture = ExtResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 320, 20 )
+texture = ExtResource( 12 )
+color = Color( 0.937255, 0.921569, 0.258824, 0.156863 )
+mode = 2
+script = ExtResource( 11 )
 
 [connection signal="body_entered" from="Garden/Area2D" to="Garden/Area2D" method="_on_Area2D_body_entered"]
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="SeedBowl" to="SeedBowl" method="_on_TextureButton_pressed"]
