@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/flower2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/flower1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/flower3.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Plant.gd" type="Script" id=4]
+[ext_resource path="res://Assets/flower0.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "grow3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "grow1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "grow2",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 30.934
+height = 182.495
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+input_pickable = true
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -128 )
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -96 )
+shape = SubResource( 2 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[connection signal="input_event" from="." to="." method="_on_KinematicBody2D_input_event"]
