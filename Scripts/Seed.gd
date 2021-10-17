@@ -26,18 +26,18 @@ func _release_drag():
 	dragging = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !dragging:
 		if GRAVITY < MAX_SPEED:
 			y_velocity += GRAVITY
 		move_and_slide(Vector2(0, y_velocity))
 
-func _process(delta):
+func _process(_delta):
 	if dragging:
 		y_velocity = 0
 		position = get_viewport().get_mouse_position() - Vector2(640, 0)
 
-func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
+func _on_KinematicBody2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("click"):
 			emit_signal("seed_press_drag_signal")

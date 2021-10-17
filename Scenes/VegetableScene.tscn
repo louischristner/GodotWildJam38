@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/SeedContainer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/garden_pot.png" type="Texture" id=2]
 [ext_resource path="res://Assets/seed_bowl.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Garden.gd" type="Script" id=4]
 [ext_resource path="res://Assets/table.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 103.545, 62.2088 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,8 +19,9 @@ texture = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="Garden"]
 script = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Garden/Area2D"]
-polygon = PoolVector2Array( -126.622, -58.7339, 126.172, -59.1307, 95.6141, 58.3369, -97.652, 57.5432 )
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Garden/Area2D"]
+position = Vector2( 0.396851, 3.1748 )
+shape = SubResource( 1 )
 
 [node name="SpawnLevel" type="Node2D" parent="Garden"]
 position = Vector2( 0, -50 )

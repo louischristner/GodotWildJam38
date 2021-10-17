@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spotlight_7.png-01ade9ddd97a9a9599417759e4d824bb.stex"
+path="res://.import/pixil-frame-0 (3).png-c982457c3cdecd663af0f2af90b3980b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spotlight_7.png"
-dest_files=[ "res://.import/spotlight_7.png-01ade9ddd97a9a9599417759e4d824bb.stex" ]
+source_file="res://Assets/pixil-frame-0 (3).png"
+dest_files=[ "res://.import/pixil-frame-0 (3).png-c982457c3cdecd663af0f2af90b3980b.stex" ]
 
 [params]
 

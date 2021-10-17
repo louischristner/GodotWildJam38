@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pngfind.com-cartoon-sun-png-177854.png-564cce3f28602a21bcebf8b1f79bff51.stex"
+path="res://.import/sun.png-736ce854ab22ff55d51294ff29b94917.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngfind.com-cartoon-sun-png-177854.png"
-dest_files=[ "res://.import/pngfind.com-cartoon-sun-png-177854.png-564cce3f28602a21bcebf8b1f79bff51.stex" ]
+source_file="res://Assets/sun.png"
+dest_files=[ "res://.import/sun.png-736ce854ab22ff55d51294ff29b94917.stex" ]
 
 [params]
 

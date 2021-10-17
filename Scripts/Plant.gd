@@ -22,7 +22,7 @@ func _process(delta):
 		animated_sprite.play("default")
 
 
-func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
+func _on_KinematicBody2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.is_action_pressed("click") and grow > GROW_2_LIMIT:
 		self.queue_free()
 		if grow < GROW_3_LIMIT and grow > GROW_2_LIMIT:
