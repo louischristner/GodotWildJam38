@@ -12,7 +12,6 @@ config_version=4
 
 config/name="Godot Wild Jam 38"
 run/main_scene="res://Scenes/MainView.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
@@ -22,6 +21,10 @@ Global="*res://Scripts/Global.gd"
 
 window/size/width=1280
 window/size/height=720
+
+[global]
+
+icon=false
 
 [input]
 
