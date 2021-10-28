@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/SeedContainer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/garden_pot.png" type="Texture" id=2]
@@ -17,15 +17,20 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 103.545, 62.2088 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.3652, 11.7552 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="background_vegetable" type="Sprite" parent="."]
-position = Vector2( 320, 360 )
+position = Vector2( 160, 180 )
+scale = Vector2( 0.5, 0.5 )
 z_index = -100
 texture = ExtResource( 13 )
 
 [node name="Garden" type="Sprite" parent="."]
-position = Vector2( 278.316, 611.634 )
+position = Vector2( 139.158, 305.817 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 30
 texture = ExtResource( 2 )
 
@@ -37,32 +42,19 @@ position = Vector2( 0.396851, 3.1748 )
 shape = SubResource( 1 )
 
 [node name="SpawnLevel" type="Node2D" parent="Garden"]
-position = Vector2( 0, -50 )
+position = Vector2( 0, -55 )
 
 [node name="Table" type="Sprite" parent="."]
-position = Vector2( 304.723, 802.203 )
+position = Vector2( 152.362, 401.102 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 100
 texture = ExtResource( 5 )
 
-[node name="SeedBowl" type="TextureButton" parent="."]
-margin_left = 403.316
-margin_top = 601.634
-margin_right = 531.316
-margin_bottom = 665.634
-rect_scale = Vector2( 0.8, 1.2 )
-action_mode = 0
-texture_normal = ExtResource( 3 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FoodScore" type="Label" parent="."]
-margin_left = 500.0
-margin_top = 80.0
-margin_right = 540.0
-margin_bottom = 94.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 270.0
+margin_top = 40.0
+margin_right = 290.0
+margin_bottom = 54.0
 text = "0"
 align = 2
 script = ExtResource( 6 )
@@ -71,16 +63,15 @@ __meta__ = {
 }
 
 [node name="SeedIcon" type="Sprite" parent="FoodScore"]
-position = Vector2( 50, 5 )
+position = Vector2( 35, 5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="FoodInfo" type="Label" parent="."]
-margin_left = 500.0
-margin_top = 120.0
-margin_right = 540.0
-margin_bottom = 134.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 270.0
+margin_top = 60.0
+margin_right = 290.0
+margin_bottom = 74.0
 text = "60"
 align = 2
 script = ExtResource( 7 )
@@ -89,20 +80,35 @@ __meta__ = {
 }
 
 [node name="clock" type="Sprite" parent="FoodInfo"]
-position = Vector2( 50, 5 )
+position = Vector2( 35, 5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="TubLight" type="Sprite" parent="."]
-position = Vector2( 320, 20 )
+position = Vector2( 160, 10 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 320, 20 )
+position = Vector2( 160, 10 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 color = Color( 0.937255, 0.921569, 0.258824, 0.156863 )
 mode = 2
 script = ExtResource( 11 )
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 238.496, 318.933 )
+input_pickable = true
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+scale = Vector2( 0.4, 0.6 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0.44545, 7.12719 )
+shape = SubResource( 2 )
+
 [connection signal="body_entered" from="Garden/Area2D" to="Garden/Area2D" method="_on_Area2D_body_entered"]
-[connection signal="pressed" from="SeedBowl" to="SeedBowl" method="_on_TextureButton_pressed"]
+[connection signal="input_event" from="KinematicBody2D" to="KinematicBody2D" method="_on_KinematicBody2D_input_event"]

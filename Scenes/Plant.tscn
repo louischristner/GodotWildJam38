@@ -13,6 +13,11 @@ animations = [ {
 "name": "default",
 "speed": 0.0
 }, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "grow2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "grow3",
@@ -22,11 +27,6 @@ animations = [ {
 "loop": true,
 "name": "grow1",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "grow2",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -34,6 +34,7 @@ radius = 30.934
 height = 182.495
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
 input_pickable = true
 script = ExtResource( 4 )
 

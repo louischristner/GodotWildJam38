@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 
-const RANGE = 400.0
-const MIN_POS = 320.0 - (RANGE / 2)
-const MAX_POS = 320.0 + (RANGE / 2)
+const RANGE = 200.0
+const MIN_POS = 160.0 - (RANGE / 2)
+const MAX_POS = 160.0 + (RANGE / 2)
 
 onready var holdingLeftClick = false
 onready var panelModel = get_node("../Panel2D")

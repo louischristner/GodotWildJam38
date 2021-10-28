@@ -19,12 +19,13 @@ Global="*res://Scripts/Global.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=640
+window/size/height=360
 
 [global]
 
 icon=false
+window=false
 
 [input]
 
