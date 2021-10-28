@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Node2D.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PathFollow2D.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Slider.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Panel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/ProgressBar.gd" type="Script" id=7]
+[ext_resource path="res://Assets/slider_bar.png" type="Texture" id=8]
 [ext_resource path="res://Assets/progress_bar_filled.png" type="Texture" id=9]
 [ext_resource path="res://Assets/background_solar.png" type="Texture" id=10]
 
@@ -87,3 +88,8 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="slider_bar" type="Sprite" parent="."]
+position = Vector2( 160, 287 )
+z_index = -10
+texture = ExtResource( 8 )
