@@ -12,7 +12,6 @@ var grow = .0
 
 func _process(delta):
 	grow += GROW_SPEED * delta * (Global.energy / 100.0)
-	print(grow)
 	if grow > GROW_3_LIMIT:
 		animated_sprite.play("grow3")
 	elif grow > GROW_2_LIMIT:
